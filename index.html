@@ -186,17 +186,16 @@
 </section>
 
 <section id="form" class="section">
-  <h2>Start Getting Talk-Ready Leads</h2>
-  <form>
-    <input type="text" placeholder="Full Name" required />
-    <input type="email" placeholder="Business Email" required />
-    <input type="text" placeholder="Agency Name" required />
-    <textarea placeholder="What types of insurance leads do you want? (e.g. Workers Comp, GL, Auto)" required></textarea>
+  <!-- Formspree setup -->
+  <form action="https://formspree.io/f/manpkynv" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="text" name="agency" placeholder="Agency Name" required />
+    <input type="email" name="email" placeholder="Business Email" required />
+    <textarea name="message" placeholder="What types of insurance leads do you want? (e.g. Workers Comp, GL, Auto)" required></textarea>
     <button type="submit">Request Access</button>
   </form>
-
-  
 </section>
+
 
 <section id="legal" class="section">
   <h2>Legal</h2>
