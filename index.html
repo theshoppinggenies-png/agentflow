@@ -46,11 +46,13 @@
       text-decoration: underline;
     }
 
+    /* HERO SECTION WITH IMAGE */
     .hero {
       text-align: center;
       padding: 5rem 1rem;
-      background: linear-gradient(to bottom right, var(--primary), var(--secondary));
       color: var(--text-light);
+      background: linear-gradient(to bottom right, rgba(0,102,255,0.85), rgba(0,75,181,0.85)),
+        url('https://via.placeholder.com/1600x800?text=Insurance+Agent+on+Call') center/cover no-repeat;
     }
 
     .hero h1 {
@@ -102,13 +104,30 @@
       box-shadow: 0 3px 6px rgba(0,0,0,0.05);
     }
 
+    /* FORM WITH IMAGE */
+    .form-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
     form {
       background: #fff;
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-      max-width: 600px;
-      margin: 0 auto;
+      width: 100%;
+    }
+
+    .form-image {
+      text-align: center;
+    }
+
+    .form-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
     }
 
     input, textarea {
@@ -166,17 +185,6 @@
   <p>We qualify business insurance prospects in real time — so you can focus on selling, not chasing.</p>
   <a href="#form" class="cta-btn">Get Qualified Leads</a>
 </section>
-  
-<section id="about" class="section">
-  <h2>About AgentFlux</h2>
-  <p style="text-align:center; max-width:750px; margin:0 auto; font-size:1.1rem; line-height:1.7;">
-    AgentFlux is built for independent and agency-based insurance producers who are tired of cold leads and wasted dials.
-    We use verified business data, live intent signals, and smart qualification funnels to deliver only 
-    <strong>ready-to-talk commercial insurance prospects</strong> — filtered by your exact criteria.
-    <br><br>
-    Our mission is simple: connect real buyers with real agents in real time.
-  </p>
-</section>
 
 <section id="how" class="section">
   <h2>How It Works</h2>
@@ -197,42 +205,41 @@
 </section>
 
 <section id="form" class="section">
-  <!-- Formspree setup -->
-<form action="https://hook.us2.make.com/rxu8cuvmll42rt4scbquoi6cus83tkuh" method="POST">
-  <input type="text" name="name" placeholder="Full Name" required />
-  <input type="text" name="agency" placeholder="Agency Name" required />
-  <input type="email" name="email" placeholder="Business Email" required />
-  <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9+()\- ]{7,}" required />
-  <textarea name="message" placeholder="What types of insurance leads do you want? (e.g. Workers Comp, GL, Auto)" required></textarea>
-  <button type="submit">Request Access</button>
-</form>
-
-<script>
-const form = document.querySelector("form");
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const response = await fetch(form.action, {
-    method: form.method,
-    body: data,
-    headers: { Accept: "application/json" },
-  });
-  if (response.ok) {
-    form.innerHTML = "<p class='text-green-500 text-center mt-4'>✅ Thank you! We'll be in touch soon.</p>";
-  } else {
-    form.innerHTML = "<p class='text-red-500 text-center mt-4'>❌ Something went wrong. Please try again.</p>";
-  }
-});
-</script>
-
-
+  <div class="form-container">
+    <div class="form-image">
+      <img src="https://via.placeholder.com/500x500?text=Insurance+Agent+Making+a+Call" alt="Insurance Agent Making a Call">
+    </div>
+    <form action="https://hook.us2.make.com/rxu8cuvmll42rt4scbquoi6cus83tkuh" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="text" name="agency" placeholder="Agency Name" required />
+      <input type="email" name="email" placeholder="Business Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <textarea name="message" placeholder="What types of insurance leads do you want? (e.g. Workers Comp, GL, Auto)" required></textarea>
+      <button type="submit">Request Access</button>
+    </form>
+  </div>
+  <script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (response.ok) {
+        form.innerHTML = "<p class='text-green-500 text-center mt-4'>✅ Thank you! We'll be in touch soon.</p>";
+      } else {
+        form.innerHTML = "<p class='text-red-500 text-center mt-4'>❌ Something went wrong. Please try again.</p>";
+      }
+    });
+  </script>
 </section>
-
 
 <section id="legal" class="section">
   <h2>Legal</h2>
   <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a> | <a href="earnings.html">Earnings Disclaimer</a></p>
-
 </section>
 
 <footer>
@@ -244,4 +251,3 @@ form.addEventListener("submit", async (e) => {
 
 </body>
 </html>
-
