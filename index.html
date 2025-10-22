@@ -198,14 +198,16 @@
 
 <section id="form" class="section">
   <!-- Formspree setup -->
-  <form action="https://hook.us2.make.com/rxu8cuvmll42rt4scbquoi6cus83tkuh" method="POST">
-    <input type="text" name="name" placeholder="Full Name" required />
-    <input type="text" name="agency" placeholder="Agency Name" required />
-    <input type="email" name="email" placeholder="Business Email" required />
-    <textarea name="message" placeholder="What types of insurance leads do you want? (e.g. Workers Comp, GL, Auto)" required></textarea>
-    <button type="submit">Request Access</button>
-  </form>
-  <script>
+<form action="https://hook.us2.make.com/rxu8cuvmll42rt4scbquoi6cus83tkuh" method="POST">
+  <input type="text" name="name" placeholder="Full Name" required />
+  <input type="text" name="agency" placeholder="Agency Name" required />
+  <input type="email" name="email" placeholder="Business Email" required />
+  <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9+()\- ]{7,}" required />
+  <textarea name="message" placeholder="What types of insurance leads do you want? (e.g. Workers Comp, GL, Auto)" required></textarea>
+  <button type="submit">Request Access</button>
+</form>
+
+<script>
 const form = document.querySelector("form");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -222,6 +224,7 @@ form.addEventListener("submit", async (e) => {
   }
 });
 </script>
+
 
 </section>
 
